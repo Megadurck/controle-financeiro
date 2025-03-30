@@ -2,6 +2,20 @@
 
 Uma aplicação desktop moderna para controle financeiro pessoal, desenvolvida com PyQt6.
 
+## Screenshots
+
+### Dashboard
+![Dashboard](screenshots/dashboard.jpg)
+Visualize seu saldo atual, entradas, saídas e gráficos interativos.
+
+### Transações
+![Transações](screenshots/transacoes.jpg)
+Gerencie suas transações com categorização inteligente.
+
+### Relatórios
+![Relatórios](screenshots/relatorios.jpg)
+Exporte seus dados e visualize estatísticas detalhadas.
+
 ## Funcionalidades
 
 - 📊 Dashboard interativo com gráficos
