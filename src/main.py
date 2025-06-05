@@ -1,12 +1,12 @@
 import sys
 from PyQt6.QtWidgets import QApplication
-from src.models.controle_caixa import ControleDeCaixa
-from src.views.main_window import MainWindow
+from models.controle_caixa import ControleDeCaixa
+from views.main_window import ModernControleDeCaixa
 
 def main():
     app = QApplication(sys.argv)
     controle = ControleDeCaixa()
-    window = MainWindow(controle)
+    window = ModernControleDeCaixa(controle)
     window.show()
     sys.exit(app.exec())
 

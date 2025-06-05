@@ -25,15 +25,7 @@ O Controle de Caixa é uma aplicação desktop que permite o gerenciamento efici
 
 ```
 Controle de Caixa/
-├── backups/
-│   └── .gitkeep
-├── screenshots/
-│   ├── dashboard.jpg
-│   ├── relatorios.jpg
-│   └── transacoes.jpg
 ├── src/
-│   ├── __init__.py
-│   ├── main.py
 │   ├── models/
 │   │   ├── __init__.py
 │   │   └── controle_caixa.py
@@ -48,13 +40,19 @@ Controle de Caixa/
 │   │   ├── constantes.py
 │   │   └── temas.py
 │   ├── controllers/
+│   │   └── __init__.py
 │   ├── resources/
+│   │   └── __init__.py
+│   ├── __init__.py
+│   └── main.py
+├── data/
+│   ├── transacoes.json
 │   └── backups/
-│       └── (arquivos de backup gerados automaticamente)
-├── controle_financeiro.py
-├── controle_caixa.py
-├── controle_caixa.db
-├── transacoes.json
+│       └── .gitkeep
+├── screenshots/
+│   ├── dashboard.jpg
+│   ├── relatorios.jpg
+│   └── transacoes.jpg
 ├── requirements.txt
 ├── .gitignore
 ├── LICENSE
@@ -74,14 +72,9 @@ cd controle-financeiro
 pip install -r requirements.txt
 ```
 
-3. Execute o programa principal:
+3. Execute o programa:
 ```bash
 python -m src.main
-```
-
-Ou, para versões antigas:
-```bash
-python controle_financeiro.py
 ```
 
 ## 📸 Screenshots

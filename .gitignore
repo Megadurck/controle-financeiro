@@ -39,9 +39,14 @@ Thumbs.db
 *.log
 
 # Arquivos de backup
-backups/
+data/backups/
 *.bak
 
 # Arquivos do projeto
-transacoes.json
-!backups/.gitkeep
+data/transacoes.json
+!data/backups/.gitkeep
+
+# Arquivos antigos
+controle_financeiro.py
+controle_caixa.py
+controle_caixa.db
