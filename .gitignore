@@ -44,4 +44,4 @@ backups/
 
 # Arquivos do projeto
 transacoes.json
-!backups/.gitkeep 
+!backups/.gitkeep
