@@ -25,22 +25,39 @@ O Controle de Caixa é uma aplicação desktop que permite o gerenciamento efici
 
 ```
 Controle de Caixa/
+├── backups/
+│   └── .gitkeep
+├── screenshots/
+│   ├── dashboard.jpg
+│   ├── relatorios.jpg
+│   └── transacoes.jpg
 ├── src/
+│   ├── __init__.py
+│   ├── main.py
 │   ├── models/
 │   │   ├── __init__.py
 │   │   └── controle_caixa.py
 │   ├── views/
 │   │   ├── __init__.py
-│   │   ├── main_window.py
 │   │   ├── dashboard.py
-│   │   ├── transacoes.py
-│   │   └── relatorios.py
+│   │   ├── main_window.py
+│   │   ├── relatorios.py
+│   │   └── transacoes.py
 │   ├── utils/
 │   │   ├── __init__.py
-│   │   └── constantes.py
-│   └── main.py
+│   │   ├── constantes.py
+│   │   └── temas.py
+│   ├── controllers/
+│   ├── resources/
+│   └── backups/
+│       └── (arquivos de backup gerados automaticamente)
+├── controle_financeiro.py
+├── controle_caixa.py
+├── controle_caixa.db
 ├── transacoes.json
 ├── requirements.txt
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
@@ -48,8 +65,8 @@ Controle de Caixa/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/controle-de-caixa.git
-cd controle-de-caixa
+git clone https://github.com/Megadurck/controle-financeiro.git
+cd controle-financeiro
 ```
 
 2. Instale as dependências:
@@ -57,9 +74,14 @@ cd controle-de-caixa
 pip install -r requirements.txt
 ```
 
-3. Execute o programa:
+3. Execute o programa principal:
 ```bash
 python -m src.main
+```
+
+Ou, para versões antigas:
+```bash
+python controle_financeiro.py
 ```
 
 ## 📸 Screenshots
@@ -126,8 +148,8 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## ✒️ Autores
 
-* **Seu Nome** - *Desenvolvimento* - [seu-usuario](https://github.com/seu-usuario)
+* **Romário** - *Desenvolvimento* - [Megadurck](https://github.com/Megadurck)
 
 ## 📞 Suporte
 
-Para suporte, envie um email para seu-email@exemplo.com ou abra uma issue no repositório.
+Para suporte, envie um email ou abra uma issue no repositório.
