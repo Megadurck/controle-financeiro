@@ -2,7 +2,10 @@ from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPus
 from src.views.dashboard import Dashboard
 from src.views.transacoes import Transacoes
 from src.views.relatorios import Relatorios
+from src.views.backup_tab import BackupTab
 from src.utils.temas import TEMAS, obter_proximo_tema
+
+
 
 class MainWindow(QMainWindow):
     def __init__(self, controle_caixa):
@@ -44,6 +47,8 @@ class MainWindow(QMainWindow):
         self.dashboard = Dashboard(self.controle_caixa, self.tema_atual, self.temas)
         self.transacoes = Transacoes(self.controle_caixa, self.tema_atual, self.temas)
         self.relatorios = Relatorios(self.controle_caixa, self.tema_atual, self.temas)
+        self.backups = BackupTab(self.controle_caixa, self.tema_atual, self.temas)
+
 
         # Conectando o signal de atualização
         self.transacoes.atualizar_signal.connect(self.atualizar_tudo)
@@ -51,6 +56,8 @@ class MainWindow(QMainWindow):
         self.tab_widget.addTab(self.dashboard, "Dashboard")
         self.tab_widget.addTab(self.transacoes, "Transações")
         self.tab_widget.addTab(self.relatorios, "Relatórios")
+        self.tab_widget.addTab(self.backups, "Backups")
+
         
         layout.addWidget(self.tab_widget)
 
@@ -160,12 +167,14 @@ class MainWindow(QMainWindow):
         self.dashboard.tema_atual = self.tema_atual
         self.transacoes.tema_atual = self.tema_atual
         self.relatorios.tema_atual = self.tema_atual
+        self.backups.tema_atual = self.tema_atual
 
         # Recriando as tabs para atualizar o tema
         self.tab_widget.clear()
         self.tab_widget.addTab(self.dashboard, "Dashboard")
         self.tab_widget.addTab(self.transacoes, "Transações")
         self.tab_widget.addTab(self.relatorios, "Relatórios")
+        self.tab_widget.addTab(self.backups, "Backups")
 
     def alternar_tema(self):
         self.tema_atual = obter_proximo_tema(self.tema_atual)

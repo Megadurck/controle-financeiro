@@ -13,7 +13,7 @@ class ControleDeCaixa:
 
         self.backup_dir = os.path.join(DATA_DIR, "backups")
         os.makedirs(self.backup_dir, exist_ok=True)
-        
+
         self.carregar_transacoes()
 
     def carregar_transacoes(self):
@@ -117,4 +117,29 @@ class ControleDeCaixa:
             "total_saidas": total_saidas,
             "saldo": self.saldo,
             "categorias": categorias
-        } 
+        }
+
+    def listar_backups(self):
+        arquivos = []
+        if os.path.exists(self.backup_dir):
+            for arquivo in os.listdir(self.backup_dir):
+                if arquivo.endswith(".json"):
+                    arquivos.append(arquivo)
+        return sorted(arquivos, reverse=True)
+
+    def restaurar_backup(self, nome_arquivo):
+        caminho_backup = os.path.join(self.backup_dir, nome_arquivo)
+
+        if not os.path.exists(caminho_backup):
+            raise FileNotFoundError("Arquivo de backup não encontrado")
+        
+        with open(caminho_backup, "r", encoding='utf-8') as f:
+            dados = json.load(f)
+
+            if not self.validar_dados(dados):
+                raise ValueError("Arquivo de backup invalido ou corrompido")
+            
+            self.transacoes = dados.get("transacoes", [])
+            self.saldo = dados.get("saldo", 0.0)
+        
+        self.salvar_transacoes()
