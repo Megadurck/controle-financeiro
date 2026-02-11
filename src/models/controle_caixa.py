@@ -3,17 +3,22 @@ import os
 import csv
 from datetime import datetime
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
 class ControleDeCaixa:
     def __init__(self):
         self.saldo = 0.0
         self.transacoes = []
-        self.backup_dir = os.path.join("data", "backups")
+
+        self.backup_dir = os.path.join(DATA_DIR, "backups")
         os.makedirs(self.backup_dir, exist_ok=True)
+        
         self.carregar_transacoes()
 
     def carregar_transacoes(self):
         try:
-            arquivo_transacoes = os.path.join("data", "transacoes.json")
+            arquivo_transacoes = os.path.join(DATA_DIR, "transacoes.json")
             if os.path.exists(arquivo_transacoes):
                 with open(arquivo_transacoes, "r", encoding='utf-8') as f:
                     dados = json.load(f)
@@ -40,7 +45,7 @@ class ControleDeCaixa:
         return True
 
     def salvar_transacoes(self):
-        arquivo_transacoes = os.path.join("data", "transacoes.json")
+        arquivo_transacoes = os.path.join(DATA_DIR, "transacoes.json")
         with open(arquivo_transacoes, "w", encoding='utf-8') as f:
             json.dump({"transacoes": self.transacoes, "saldo": self.saldo}, f, ensure_ascii=False)
         self.fazer_backup()
